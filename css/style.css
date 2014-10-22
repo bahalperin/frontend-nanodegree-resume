@@ -9,19 +9,20 @@ hr {
 }
 
 .education-content, .work-content, .project-content {
-  margin-left: 5%;
+  margin: 0 auto;
   padding-left: 5px;
   padding-right: 15px;
   border-left: 2px solid #757575;
+  border-right: 2px solid #757575;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: rgba(77, 32, 149, 0.33);
+  background: rgba(128, 145, 165, 0.33);
+  max-width: 1024px;
 }
 
 .education-entry, .work-entry, .project-entry, .online-entry {
-  max-width: 960px;
   padding-left: 15px;
 }
 
@@ -29,7 +30,7 @@ hr {
   font-family: "Trocchi";
   margin-top: 0;
   margin-bottom: 0;
-  padding: 5px 15px 5px 15px;
+  padding: 5px 15px 5px 5%;
   border-bottom: 5px solid #d49000;
 }
 
@@ -268,11 +269,50 @@ span {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  #name {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3,h4,h5 {
+    font-size: 14px;
+  }
+  span.orange-text {
+    display: none;
+  }
+  span.white-text {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  #name {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3,h4,h5 {
+    font-size: 14px;
+  }
+  span.orange-text {
+    display: none;
+  }
+  span.white-text {
+    font-size: 10px;
+  }
+}
+
+
 #map {
   display: block;
+  margin: 0 auto;
+  max-width: 1024px;
   height: 100%;
-  margin-left: 5%;
   border-left: 2px solid #757575;
+  border-right: 2px solid #757575;
   margin-bottom: 0;
 }
 
@@ -295,6 +335,15 @@ span {
   }
 }
 
+@media only screen and (max-width: 1100px) {
+  .education-content,
+  .project-content,
+  .work-content {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 18px;
@@ -307,12 +356,6 @@ span {
   }
   .section-header {
     text-align: center;
-  }
-  .education-content,
-  .project-content,
-  .work-content {
-    margin-right: 5%;
-    border-right: 2px solid #757575;
   }
   .work-description {
     padding-left: 10px;
