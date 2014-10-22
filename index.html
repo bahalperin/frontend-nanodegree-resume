@@ -1,218 +1,120 @@
 <!DOCTYPE html>
-
-<!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
-
-I can't wait to see the resumes you put together!
-
-Cameron Pittman, Udacity Course Developer
--->
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
+<html>
 
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css"></link>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
-  <link href="css/headhesive.css" rel="stylesheet" type="text/css"></link>
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
-  <script src="js/jQuery.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="js/hashTabber.js"></script>
-  <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
+  <title>My Resume</title>
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Righteous|Cinzel:900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Viga|Trocchi|Fredericka+the+Great|Caudex|Leckerli+One|Quando' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
+  <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+  <!-- for the fixed header -->
+  <style type="text/css">
+    .header {
+      position: fixed;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+
+
+  <script type="text/javascript" src="js/jQuery.js"></script>
+  <script type="text/javascript" src="js/helper.js"></script>
+
+  <script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <meta name="viewport" content="width=device-width">
-</head>
 
-<body unresolved>
-  <main>
-
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Brand</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-          <ol class="hashTabber-nav nav navbar-nav" data-hashtabber-id="foo">
-            <li><a>First item</a>
-            </li>
-            <li><a>Second item</a>
-            </li>
-            <li><a>Third item</a>
-            </li>
-            <li><a>4 item</a>
-            </li>
-            <li><a>5 item</a>
-            </li>
-          </ol>
-
-
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-
-    <ol class="hashTabber-data" data-hashtabber-id="foo">
-      <li>
-        <header class="center-content header">
-          <ul id="topContacts" class='flex-box'></ul>
-        </header>
-      </li>
-      <li>
-        <section id="workExperience" class='gray'>
-          <h2>Work Experience</h2>
-        </section>
-      </li>
-      <li>
-        <section id="projects">
-          <h2>Projects</h2>
-        </section>
-      </li>
-      <li>
-        <section id="education" class='gray'>
-          <h2>Education</h2>
-        </section>
-      </li>
-      <li>
-        <section id="mapDiv">
-          <h2>Where I've Lived and Worked</h2>
-        </section>
-      </li>
-      <li>
-        <section id="letsConnect" class='dark-gray'>
-          <h2 class='orange center-text'>Let's Connect</h2>
-          <ul class="flex-box container-fluid">
-            <div id="footerContacts" class="row"></div>
-          </ul>
-        </section>
-      </li>
-    </ol>
-
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-    <!--
-    <header class="center-content header">
-      <ul id="topContacts" class='flex-box'></ul>
-    </header>
-    <div style='clear: both;'></div>
-    <section id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
-    </section>
-    <section id="projects">
-      <h2>Projects</h2>
-    </section>
-    <section id="education" class='gray'>
-      <h2>Education</h2>
-    </section>
-    <section id="skillsChart">
-      <h2>Skills Chart</h2>
-    </section>
-    <section id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </section>
-    <section id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-      <ul class="flex-box container-fluid">
-        <div id="footerContacts" class="row"></div>
-      </ul>
-    </section>
--->
-  </main>
-
-
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In resumeBuilder.js, you'll be writing code that builds the resume
-  dynamically when this website, index.html, is opened.
-  -->
-  <script src="js/resumeBuilder.js"></script>
-  <script src="js/headhesive.js"></script>
-
-  <!--
-  These scripts are written in JavaScript. You'll be breaking them down as part of
-  a quiz. Essentially, the next few lines are checking to see if you have not
-  changed each section of the resume. If you have not made any changes to a section
-  of the resume, then that part of the resume does not show up. More on this in the
-  course.
-  -->
 
   <script type="text/javascript">
-    // Notice how all of a sudden there's JavaScript inside this HTML
-     // document? You can write JavaScript between <script> tags. At the end of your 
-     // JavaScript, don't forget the closing script tag with the slash (/).
+    $(function () {
+      var $menu = $('nav#menu'),
+        $html = $('html, body');
 
+      $menu.mmenu({
+        dragOpen: true,
+        "zposition": "front"
+      });
 
-     // Also, this is a JavaScript style comment. You can comment in JavaScript with:
+      $menu.find('li > a').on('click',
+        function () {
+          var href = $(this).attr('href');
 
-     //   two slashes for all following characters on a single line, or
-
-    /*
-      an opening and closing set of slash asterisks for block comments.
-  */
-    var tabber = new HashTabber();
-    tabber.run();
-
-    if (document.getElementsByClassName("flex-item").length === 0) {
-      document.getElementById("topContacts").style.backgroundColor = "black";
-    }
-    if (document.getElementsByTagName("h1").length === 0) {
-      document.getElementById("header").style.backgroundColor = "black";
-    }
-    if (document.getElementsByClassName("work-entry").length === 0) {
-      document.getElementById("workExperience").style.backgroundColor = "black";
-    }
-    if (document.getElementsByClassName("project-entry").length === 0) {
-      document.getElementById("projects").style.backgroundColor = "black";
-    }
-    if (document.getElementsByClassName("education-entry").length === 0) {
-      document.getElementById("education").style.backgroundColor = "black";
-    }
-    if (document.getElementsByClassName("skills-entry").length === 0) {
-      document.getElementById("skillsChart").style.backgroundColor = "black";
-    }
-    if (document.getElementsByClassName("flex-item").length === 0) {
-      document.getElementById("letsConnect").style.backgroundColor = "black";
-    }
-    if (document.getElementById("map") == undefined) {
-      document.getElementById("mapDiv").style.backgroundColor = "black";
-    }
+          //	if the clicked link is linked to an anchor, scroll the page to that anchor 
+          if (href.slice(0, 1) == '#') {
+            $menu.one(
+              'closed.mm',
+              function () {
+                setTimeout(
+                  function () {
+                    $html.animate({
+                      scrollTop: $(href).offset().top - 60
+                    });
+                  }, 10
+                );
+              }
+            );
+          }
+        }
+      );
+    });
   </script>
+</head>
+
+<body>
+  <div id="page">
+    <div class="header FixedTop">
+      <a href="#menu"></a>
+    </div>
+    <div>
+      <div id="header">
+        <div class="header-content container-fluid">
+          <ul id="topContacts" class="row"></ul>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div id="workExperience">
+        <h2 class="section-header">Work Experience</h2>
+        <div class="work-content"></div>
+      </div>
+      <div id="projects">
+        <h2 class="section-header">Projects</h2>
+        <div class="project-content"></div>
+      </div>
+      <div id="education">
+        <h2 class="section-header">Education</h2>
+        <div class="education-content"></div>
+      </div>
+      <div id="mapDiv">
+        <h2 class="section-header">Where I've Lived and Worked</h2>
+      </div>
+    </div>
+    <div id="letsConnect">
+      <h2 class="footer-header">Let's Connect</h2>
+    </div>
+    <nav id="menu">
+      <ul>
+        <li><a href="#header">Header</a>
+        </li>
+        <li><a href="#workExperience">Work Experience</a>
+        </li>
+        <li><a href="#projects">Projects</a>
+        </li>
+        <li><a href="#education">Education</a>
+        </li>
+        <li><a href="#mapDiv">Map</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script type="text/javascript" src="js/resumeBuilder.js"></script>
 </body>
+
+</html>

@@ -1,20 +1,72 @@
-*{
+* {
     padding:0;
     margin:0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans','Roboto','sans-serif';
 }
 
+hr {
+  border-color: #757575;
+}
 
-.education-entry, .work-entry, .project-entry {
-  padding-left: 5%;
-  padding-right: 5%;
+.education-content, .work-content, .project-content {
+  margin-left: 5%;
+  padding-left: 5px;
+  padding-right: 15px;
+  border-left: 2px solid #757575;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(77, 32, 149, 0.33);
+}
+
+.education-entry, .work-entry, .project-entry, .online-entry {
+  max-width: 960px;
+  padding-left: 15px;
+}
+
+.section-header {
+  font-family: "Trocchi";
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 5px 15px 5px 15px;
+  border-bottom: 5px solid #d49000;
+}
+
+.footer-header {
+  font-family: "Trocchi";
+  background: #484848;
+  border-top: 5px solid #d49000;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.online-entry {
+  padding-bottom: 20px;
+}
+
+.education-entry {
+  padding-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 5px;
 }
 
 h1 {
+  font-family: "Trocchi";
   font-size: 40px;
-  color: #F5A623;
   line-height: 48px;
   display: inline;
+  font-weight: 900;
 }
 
 h2 {
@@ -22,34 +74,33 @@ h2 {
   font-size: 24px;
   color: #999999;
   line-height: 29px;
-  padding: 10px;
 }
 
 h3 {
-  font-style: italic;
+  font-weight: 900;
   font-size: 20px;
-  color: #000000;
-  line-height: 22px;
+  margin-top: 0;
 }
 
 h4 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+h5 {
   font-style: bold;
-  font-size: 14px;
-  color: #4A4A4A;
-  line-height: 17px;
+  font-size: 16px;
 }
 
-h2, h3, h4, h5 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
+.work-description {
+  padding-bottom: 20px;
+  padding-left: 50px;
 }
-
 
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #383131;
   line-height: 16px;
   float: left;
 }
@@ -57,7 +108,7 @@ h2, h3, h4, h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #383131;
   line-height: 16px;
   float: right;
 
@@ -72,7 +123,6 @@ p {
 a {
   color: #1199C3;
   text-decoration: none;
-  margin-top: 10px;
   display: block;
 }
 
@@ -81,6 +131,19 @@ a {
   font-size: 18px;
   color: #F3F3F3;
   line-height: 28px;
+  font-weight: 300;
+}
+
+.welcome {
+  border-bottom: 1px solid #757575;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#online-courses {
+  padding-left: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
 }
 
 #skillsH3 {
@@ -97,7 +160,7 @@ a {
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #d49000;
 }
 
 .white-text {
@@ -117,8 +180,22 @@ a {
 
 /* TODO: Replace with image later */
 
-header {
+#header {
   background-color: #484848;
+  padding-top: 55px;
+}
+
+span.orange-text {
+  border-right: 1px solid #757575;
+  border-left: 1px solid #757575;
+}
+
+#topContacts {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  list-style-type: none;
+  border-bottom: 1px solid #757575;
 }
 
 .flex-box {
@@ -135,7 +212,8 @@ header {
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: circle filled;
+  padding-left: 20px;
 }
 
 .anchor {
@@ -173,34 +251,19 @@ span {
 
 #letsConnect {
   text-align: center;
-}
-
-@media only screen and (max-width: 1024px) {
-  #letsConnect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
+  height: 60px;
+  background: #484848;
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 750px) {
-  #letsConnect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
   #map {
     display: none;
   }
   #mapDiv {
+    display: none;
+  }
+  .welcome {
     display: none;
   }
 }
@@ -209,37 +272,128 @@ span {
   display: block;
   height: 100%;
   margin-left: 5%;
-  margin-right: 5%;
+  border-left: 2px solid #757575;
+  margin-bottom: 0;
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 5%;
+  padding-bottom: 40px;
+  margin-bottom: 0;
 }
 
-@media only screen and (min-width: 750px) {
-  #skillsH3,
-  #skills,
-  .biopic {
-    display: block;
+@media only screen and (max-width: 750px) {
+  h1 {
+    font-size: 30px;
   }
+}
+
+@media only screen and (max-width: 1000px) {
+  span.orange-text {
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3,h4,h5 {
+    font-size: 14px;
+  }
+  .section-header {
+    text-align: center;
+  }
+  .education-content,
+  .project-content,
+  .work-content {
+    margin-right: 5%;
+    border-right: 2px solid #757575;
+  }
+  .work-description {
+    padding-left: 10px;
+  }
+  #topContacts {
+    text-align: left;
+    padding-left: 0;
+  }
+  
 }
 
 #skillsChart {
   display: none;
 }
 
-ol.hashTabber-nav, ol.hashTabber-data {
-  list-style: none;
-  margin: 0;
-  padding: 0; 
+#name {
+  padding-top: 10px;
+
 }
 
-ol.hashTabber-data > li {
-  display: none; 
+/*******/
+
+
+a, a:link, a:active, a:visited, a:hover
+{
+  color: inherit;
+  text-decoration: underline;
 }
 
-ol.hashTabber-data > li.active {
-  display: block; 
+nav:not(.mm-menu)
+{
+  display: none;
+}
+
+.header,
+.footer
+{
+  text-align: center;
+}
+.header,
+.footer
+{
+  background: #484848;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  box-sizing: border-box;	
+  width: 100%;
+  padding: 0 50px;
+  border-bottom: 1px solid #757575;
+}
+.header a
+{
+  background: center center no-repeat transparent;
+  background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpi/P//PwOtARMDHQBdLGFBYtMq3BiHT3DRPU4YR4NrNAmPJuHRJDyahEeT8Ii3BCDAAF0WBj5Er5idAAAAAElFTkSuQmCC );
+
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.header {
+  height: 60px;
+}
+
+.footer {
+  height: 40px;
+}
+
+.header h1 {
+  vertical-align: middle;
+}
+
+.header {
+  z-index: 100;
+}
+
+.footer-header {
+  position: relative;
+  z-index: 100;
 }

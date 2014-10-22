@@ -6,21 +6,21 @@ var work = {
             "title": "Mechanical Engineer",
             "location": "Columbus, OH",
             "dates": "January 2014 - Present",
-            "description": "A metalloid is a chemical element that has properties in between those of metals and nonmetals. There is no standard definition of a metalloid, nor is there agreement as to which elements are appropriately classified as such. Despite this uncertainty, the term remains in use in chemistry literature. The six commonly recognised metalloids are boron, silicon, germanium, arsenic, antimony and tellurium (pictured). Elements less commonly recognised as metalloids include carbon, aluminium, selenium, polonium and astatine. Typical metalloids have a metallic appearance but are brittle and only fair conductors of electricity. Chemically, they mostly behave as weak nonmetals. They can form alloys with metals. Most of their other properties are intermediate in nature. Metalloids and their compounds are used in alloys, biological agents, flame retardants, glasses, optical storage and optoelectronics, pyrotechnics, semiconductors and electronics. The term metalloid originally referred to nonmetals. Its more recent meaning, as a category of elements with intermediate properties, became widespread in 1940–1960. Metalloids are sometimes called semimetals, a practice that has been discouraged. "
+            "description": ["A metalloid is a chemical element that has properties in between those of metals and nonmetals. There is no standard definition of a metalloid, nor is there agreement as to which elements are appropriately classified as such.", "Despite this uncertainty, the term remains in use in chemistry literature. The six commonly recognised metalloids are boron, silicon, germanium, arsenic, antimony and tellurium (pictured). Elements less commonly recognised as metalloids include carbon, aluminium, selenium, polonium and astatine. Typical metalloids have a metallic appearance but are brittle and only fair conductors of electricity. Chemically, they mostly behave as weak nonmetals.", "They can form alloys with metals. Most of their other properties are intermediate in nature. Metalloids and their compounds are used in alloys, biological agents, flame retardants, glasses, optical storage and optoelectronics, pyrotechnics, semiconductors and electronics.", "The term metalloid originally referred to nonmetals. Its more recent meaning, as a category of elements with intermediate properties, became widespread in 1940–1960. Metalloids are sometimes called semimetals, a practice that has been discouraged. "]
         },
         {
             "employer": "Honda R&D Americas, Inc.",
             "title": "Underbody Design Engineer",
             "location": "Raymond, OH",
             "dates": "June 2012 - January 2014",
-            "description": "A metalloid is a chemical element that has properties in between those of metals and nonmetals. There is no standard definition of a metalloid, nor is there agreement as to which elements are appropriately classified as such. Despite this uncertainty, the term remains in use in chemistry literature. The six commonly recognised metalloids are boron, silicon, germanium, arsenic, antimony and tellurium (pictured). Elements less commonly recognised as metalloids include carbon, aluminium, selenium, polonium and astatine. Typical metalloids have a metallic appearance but are brittle and only fair conductors of electricity. Chemically, they mostly behave as weak nonmetals. They can form alloys with metals. Most of their other properties are intermediate in nature. Metalloids and their compounds are used in alloys, biological agents, flame retardants, glasses, optical storage and optoelectronics, pyrotechnics, semiconductors and electronics. The term metalloid originally referred to nonmetals. Its more recent meaning, as a category of elements with intermediate properties, became widespread in 1940–1960. Metalloids are sometimes called semimetals, a practice that has been discouraged. "
+            "description": ["Responsible for design of rear bumper beam, front bumper, and grille on future Honda vehicle.", "Worked in multi-functional team comprised of electrical, lighting, reliability, dynamic performance, crash-safety, manufacturing, styling, purchasing, and supplier companies.", "Designed steel, aluminum, and plastic parts using various forming technologies including stamping, rollforming, extrusion, and injection molding; Modeled parts using CATIA V5.", "Worked under tight deadlines to mature part design and issue drawings.", "Calculated part costs for correlation meetings with purchasing and suppliers."]
         },
         {
             "employer": "Thomas Polise Consulting Engineer PC",
             "title": "Mechanical Engineering Intern",
             "location": "New York, NY",
             "dates": "June 2011 - August 2011",
-            "description": "A metalloid is a chemical element that has properties in between those of metals and nonmetals. There is no standard definition of a metalloid, nor is there agreement as to which elements are appropriately classified as such. Despite this uncertainty, the term remains in use in chemistry literature. The six commonly recognised metalloids are boron, silicon, germanium, arsenic, antimony and tellurium (pictured). Elements less commonly recognised as metalloids include carbon, aluminium, selenium, polonium and astatine. Typical metalloids have a metallic appearance but are brittle and only fair conductors of electricity. Chemically, they mostly behave as weak nonmetals. They can form alloys with metals. Most of their other properties are intermediate in nature. Metalloids and their compounds are used in alloys, biological agents, flame retardants, glasses, optical storage and optoelectronics, pyrotechnics, semiconductors and electronics. The term metalloid originally referred to nonmetals. Its more recent meaning, as a category of elements with intermediate properties, became widespread in 1940–1960. Metalloids are sometimes called semimetals, a practice that has been discouraged. "
+            "description": ["TPCE is an MEP consulting engineering firm with over 40 years of experience in the industry.", "Performed calculations related to the design of HVAC systems, including: heating load, cooling load, duct sizing, pipe sizing, pipe flow rate, and pipe pressure drop.", "Increased productivity by creating useful tools in Excel referencing the ASHRAE Fundamentals Handbook and Carrier Design Manual, removing the need to look up data and perform repetitive calculations.", "Answered design questions by referring to ASHRAE standards and building, mechanical, and fire codes.", "Visited construction sites and learned how to read construction drawings."]
         }
     ]
 };
@@ -47,7 +47,7 @@ var bio = {
         "location": "Columbus, OH"
     },
     "skills": ["HTML", "CSS", "Javascript", "Python"],
-    "picture": "http://placepuppy.it/100/100"
+    "picture": "images/fry.jpg"
 };
 
 var education = {
@@ -102,26 +102,30 @@ String.prototype.replaceData = function (info, placeholder) {
 
 //Encapsulated Functions
 bio.display = function () {
-    var nameRole = "{" + this.name + ": " + this.role + "}";
+    var name = HTMLheaderName.replaceData(this.name);
+    var role = HTMLheaderRole.replaceData(this.role);
 
-    $(".navbar-brand").html(nameRole);
+    $("div.header").prepend(name + role);
+    $("#name").wrap("<div class='container-fluid'></div>").wrap("<div class='row' style='padding-top:5px'></div>");
 
     var formattedWelcome = HTMLWelcomeMsg.replaceData(this.welcomeMessage);
 
-    $("header").append(formattedWelcome);
 
-    var formattedPicture = HTMLbioPic.replaceData(this.picture);
 
-    $("header").append(formattedPicture);
+    //var formattedPicture = HTMLbioPic.replaceData(this.picture);
 
+    //$("#header").append(formattedPicture);
+    $(".header-content").prepend(formattedWelcome);
+    $(".welcome-message").wrap("<div class='welcome row text-center'></div>");
+    /*
     if (this.skills.length !== 0) {
-        $("header").append(HTMLskillsStart);
+        $("#header").append(HTMLskillsStart);
         for (var skill in this.skills) {
             var formattedSkill = HTMLskills.replaceData(bio.skills[skill]);
             $("#skills").append(formattedSkill);
         }
     }
-
+*/
     var abbrContacts = this.contacts;
 
     var formattedMobile = HTMLmobile.replaceData(abbrContacts.mobile);
@@ -129,10 +133,10 @@ bio.display = function () {
     var formattedGithub = HTMLgithub.replaceData(abbrContacts.github);
     var formattedLocation = HTMLlocation.replaceData(abbrContacts.location);
 
-    $("#footerContacts").append(formattedMobile);
-    $("#footerContacts").append(formattedEmail);
-    $("#footerContacts").append(formattedGithub);
-    $("#footerContacts").append(formattedLocation);
+    $("#topContacts").append(formattedMobile);
+    $("#topContacts").append(formattedEmail);
+    $("#topContacts").append(formattedGithub);
+    $("#topContacts").append(formattedLocation);
 };
 
 
@@ -140,24 +144,29 @@ work.display = function () {
     for (var job in this.jobs) {
         var abbrJob = this.jobs[job];
 
-        $("#workExperience").append(HTMLworkStart);
+        $(".work-content").append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replaceData(abbrJob.employer);
         var formattedTitle = HTMLworkTitle.replaceData(abbrJob.title);
         var formattedLocation = HTMLworkLocation.replaceData(abbrJob.location);
         var formattedDates = HTMLworkDates.replaceData(abbrJob.dates);
-        var formattedDescription = HTMLworkDescription.replaceData(abbrJob.description);
 
         $(".work-entry:last").append(formattedEmployer + formattedTitle);
         $(".work-entry:last").append(formattedDates);
         $(".work-entry:last").append(formattedLocation);
-        $(".work-entry:last").append(formattedDescription);
+        $(".work-entry:last").append(HTMLworkDescriptionStart);
+        
+        var formattedDescription;
+        for (var desc in abbrJob.description) {
+            formattedDescription = HTMLworkDescription.replaceData(abbrJob.description[desc]);
+            $(".work-description:last").append(formattedDescription);
+        }
     }
 };
 
 
 
 projects.display = function () {
-    $("#projects").append(HTMLprojectStart);
+    $(".project-content").append(HTMLprojectStart);
     for (var project in this.projects) {
         var abbrProjects = this.projects[project];
 
@@ -184,8 +193,8 @@ projects.display = function () {
 
 
 
-education.displaySchools = function () {
-    $("#education").append(HTMLschoolStart);
+education.display = function () {
+    $(".education-content").append(HTMLschoolStart);
     for (var school in education.schools) {
         var abbrSchool = education.schools[school];
 
@@ -209,11 +218,37 @@ education.displaySchools = function () {
             $(".education-entry:last").append(formattedMajors[major]);
         }
     }
-};
+    $(".education-content").append(HTMLonlineClasses);
+    $(".education-content").append("<div class='container-fluid'</div>");
 
+    var count = 0;
+    for (var online in education.onlineCourses) {
+        if (count === 0) {
+            $(".education-content").append("<div class='row education-entry'></div>");
+        }
+        $(".row:last").append("<div class='col-md-4 online-entry'></div>");
+        var course = education.onlineCourses[online];
+
+        var formattedTitle = HTMLonlineTitle.replaceData(course.title);
+        var formattedSchool = HTMLonlineSchool.replaceData(course.school);
+        var formattedDates = HTMLonlineDates.replaceData(course.dates);
+        var formattedUrl = HTMLonlineURL.replace(/%data%/g,course.url);
+
+
+        $(".col-md-4:last").append(formattedTitle + formattedSchool);
+        $(".col-md-4:last").append(formattedDates);
+        $(".col-md-4:last").append(formattedUrl);
+        count += 1;
+        console.log(count);
+        if (count === 3) {
+            count = 0;
+        }
+    }
+};
+$("h2").addClass("dark-gray").addClass("white-text");
 bio.display();
 work.display();
 projects.display();
-education.displaySchools();
+education.display();
 
 $("#mapDiv").append(googleMap);
