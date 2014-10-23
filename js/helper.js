@@ -12,11 +12,11 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = "<h1 id='name'>{%data%:";
+var HTMLheaderName = "<h1 id='nameRole'>{%data%:";
 var HTMLheaderRole = " %data%}</h1>";
 
-var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%</span><span class='white-text'>%data%</span></li>";
-var HTMLmobile = "<li class='flex-item col-md-3 col-xs-6'><span class='orange-text' style='text-align:left'>mobile</span><span class='white-text' style='text-align: right'>%data%</span></li>";
+var HTMLcontactGeneric = "<li class='col-md-3 col-xs-6'><span class='orange-text'>%contact%</span><span class='white-text'>%data%</span></li>";
+var HTMLmobile = "<li class='flex-item col-md-3 col-xs-6'><span class='orange-text'>mobile</span><span class='white-text'>%data%</span></li>";
 var HTMLemail = "<li class='flex-item col-md-3 col-xs-6'><span class='orange-text'>email</span><span class='white-text'>%data%</span></li>";
 var HTMLtwitter = "<li class='flex-item col-md-3 col-xs-6'><span class='orange-text'>twitter</span><span class='white-text'>%data%</span></li>";
 var HTMLgithub = "<li class='flex-item col-md-3 col-xs-6'><span class='orange-text'>github</span><span class='white-text'>%data%</span></li>";
@@ -30,8 +30,8 @@ var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills'
 var HTMLskills = "<li class='flex-item'><span class='white-text'>%data%</span></li>";
 
 var HTMLworkStart = "<div class='work-entry'></div>";
-var HTMLworkEmployer = "<h3>%data%";
-var HTMLworkTitle = " - %data%</h3>";
+var HTMLworkEmployer = "<h3>%data%</h3>";
+var HTMLworkTitle = "<h4>%data%</h4>";
 var HTMLworkDates = "<div class='date-text'>%data%</div>";
 var HTMLworkLocation = "<div class='location-text'>%data%</div>";
 var HTMLworkDescriptionStart = "<hr><ul class='work-description'></ul>"
@@ -40,7 +40,8 @@ var HTMLworkDescription = "<li>%data%</li>";
 var HTMLprojectStart = "<div class='project-entry'></div>";
 var HTMLprojectTitle = "<h4>%data%</h4>";
 var HTMLprojectDates = "<div class='date-text'>%data%</div>";
-var HTMLprojectDescription = "<p><br>%data%</p>";
+var HTMLprojectDescriptionStart = "<hr><ul class='project-description'></ul>"
+var HTMLprojectDescription = "<li>%data%</li>";
 var HTMLprojectImage = "<img src='%data%'>";
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
@@ -50,7 +51,7 @@ var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>"
 
-var HTMLonlineClasses = "<h3 id='online-courses'>Online Classes</h3>";
+var HTMLonlineClasses = "<h3>Online Classes</h3><hr>";
 var HTMLonlineTitle = "<h5>%data%";
 var HTMLonlineSchool = " - %data%</h5>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
@@ -59,6 +60,9 @@ var HTMLonlineURL = "<br><a href='%data%'>%data%</a>";
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map' class='gmap'></div>";
 
+var container = "<div class='container'></div>";
+var containerFluid = "<div class='container-fluid'></div>";
+var row = "<div class='row'></div>"
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.

@@ -30,9 +30,15 @@ var projects = {
         {
             "title": "Duct Sizer",
             "dates": "September 2014 - October 2014",
-            "description": "Web application for sizing ducts.  Meant to replace cardboard duct calculators.",
+            "description": ["Web application for sizing ducts.  Meant to replace cardboard duct calculators.", "Blah blah blah more stuff eventually."],
             "images": []
-        }
+        },
+        {
+            "title": "Duct Sizer 2...This time more duct-y",
+            "dates": "September 2014 - Forever",
+            "description": ["Lorem ipsum and all that blah blah blah blahblahblahblah blah.", "More lorem ipsum lorem ipsum blah lorem blah blah blah loremblah blah."],
+            "images": []
+      }
     ]
 };
 
@@ -95,28 +101,30 @@ var education = {
     ]
 };
 
+// I think this is easier to read/type than using .replace()
 String.prototype.replaceData = function (info, placeholder) {
     placeholder = placeholder || "%data%";
     return this.replace(placeholder, info);
 };
 
-//Encapsulated Functions
+// Encapsulated Functions
 bio.display = function () {
-    var name = HTMLheaderName.replaceData(this.name);
-    var role = HTMLheaderRole.replaceData(this.role);
+    var formattedName = HTMLheaderName.replaceData(this.name);
+    var formattedRole = HTMLheaderRole.replaceData(this.role);
 
-    $("div.header").prepend(name + role);
-    $("#name").wrap("<div class='container-fluid'></div>").wrap("<div class='row' style='padding-top:5px'></div>");
+    $("div.nav").prepend(formattedName + formattedRole);
+    $("#nameRole").wrap(containerFluid).wrap("<div class='row' style='padding-top:5px'></div>");
 
     var formattedWelcome = HTMLWelcomeMsg.replaceData(this.welcomeMessage);
 
+    // Not showing picture on resume for now.
+    // var formattedPicture = HTMLbioPic.replaceData(this.picture);
+    // $("#header").append(formattedPicture);
 
-
-    //var formattedPicture = HTMLbioPic.replaceData(this.picture);
-
-    //$("#header").append(formattedPicture);
     $(".header-content").prepend(formattedWelcome);
     $(".welcome-message").wrap("<div class='welcome row text-center'></div>");
+
+    // Not showing skills on resume for now.
     /*
     if (this.skills.length !== 0) {
         $("#header").append(HTMLskillsStart);
@@ -126,74 +134,64 @@ bio.display = function () {
         }
     }
 */
-    var abbrContacts = this.contacts;
 
-    var formattedMobile = HTMLmobile.replaceData(abbrContacts.mobile);
-    var formattedEmail = HTMLemail.replaceData(abbrContacts.email);
-    var formattedGithub = HTMLgithub.replaceData(abbrContacts.github);
-    var formattedLocation = HTMLlocation.replaceData(abbrContacts.location);
-
-    $("#topContacts").append(formattedMobile);
-    $("#topContacts").append(formattedEmail);
-    $("#topContacts").append(formattedGithub);
-    $("#topContacts").append(formattedLocation);
+    for (var contact in this.contacts) {
+        var formattedContact = HTMLcontactGeneric.replaceData(this.contacts[contact]);
+        formattedContact = formattedContact.replace("%contact%", contact);
+        $("#topContacts").append(formattedContact);
+    }
 };
 
-
 work.display = function () {
-    for (var job in this.jobs) {
-        var abbrJob = this.jobs[job];
+    for (var employ in this.jobs) {
+        var job = this.jobs[employ];
+
+        var formattedEmployer = HTMLworkEmployer.replaceData(job.employer);
+        var formattedTitle = HTMLworkTitle.replaceData(job.title);
+        var formattedLocation = HTMLworkLocation.replaceData(job.location);
+        var formattedDates = HTMLworkDates.replaceData(job.dates);
+        var formattedDescription = "";
+        for (var desc in job.description) {
+            formattedDescription += HTMLworkDescription.replaceData(job.description[desc]);
+        }
 
         $(".work-content").append(HTMLworkStart);
-        var formattedEmployer = HTMLworkEmployer.replaceData(abbrJob.employer);
-        var formattedTitle = HTMLworkTitle.replaceData(abbrJob.title);
-        var formattedLocation = HTMLworkLocation.replaceData(abbrJob.location);
-        var formattedDates = HTMLworkDates.replaceData(abbrJob.dates);
-
         $(".work-entry:last").append(formattedEmployer + formattedTitle);
         $(".work-entry:last").append(formattedDates);
         $(".work-entry:last").append(formattedLocation);
         $(".work-entry:last").append(HTMLworkDescriptionStart);
-        
-        var formattedDescription;
-        for (var desc in abbrJob.description) {
-            formattedDescription = HTMLworkDescription.replaceData(abbrJob.description[desc]);
-            $(".work-description:last").append(formattedDescription);
-        }
+        $(".work-description:last").append(formattedDescription);
     }
 };
 
-
-
 projects.display = function () {
-    $(".project-content").append(HTMLprojectStart);
-    for (var project in this.projects) {
-        var abbrProjects = this.projects[project];
+    for (var task in this.projects) {
+        var project = this.projects[task];
 
-        var formattedTitle = HTMLprojectTitle.replaceData(abbrProjects.title);
-        var formattedDates = HTMLprojectDates.replaceData(abbrProjects.dates);
-        var formattedDescription = HTMLprojectDescription.replaceData(abbrProjects.description);
-        var formattedImages = [];
-        if (abbrProjects.images.length > 0) {
-            for (var image in abbrProjects.images) {
-                formattedImages.push(HTMLprojectImage.replaceData(abbrProjects.images[image]))
+        var formattedTitle = HTMLprojectTitle.replaceData(project.title);
+        var formattedDates = HTMLprojectDates.replaceData(project.dates);
+        var formattedDescription = "";
+        for (var desc in project.description) {
+            formattedDescription += HTMLprojectDescription.replaceData(project.description[desc]);
+        }
+        var formattedImages = "";
+        if (project.images.length > 0) {
+            for (var image in project.images) {
+                formattedImages += HTMLprojectImage.replaceData(project.images[image])
             }
         }
 
+        $(".project-content").append(HTMLprojectStart);
         $(".project-entry:last").append(formattedTitle);
         $(".project-entry:last").append(formattedDates);
-        $(".project-entry:last").append(formattedDescription);
-        for (var image in formattedImages) {
-            $(".project-entry:last").append(formattedImages[image]);
-        }
+        $(".project-entry:last").append(HTMLprojectDescriptionStart);
+        $(".project-description:last").append(formattedDescription);
+        $(".project-entry:last").append(formattedImages);
     }
 };
 
-
-
-
-
 education.display = function () {
+    // Show education content
     $(".education-content").append(HTMLschoolStart);
     for (var school in education.schools) {
         var abbrSchool = education.schools[school];
@@ -203,7 +201,6 @@ education.display = function () {
         var formattedDates = HTMLschoolDates.replaceData(abbrSchool.dates);
         var formattedLocation = HTMLschoolLocation.replaceData(abbrSchool.location);
         var formattedMajors = [];
-
         if (abbrSchool.majors.length > 0) {
             for (var major in abbrSchool.majors) {
                 formattedMajors.push(HTMLschoolMajor.replaceData(abbrSchool.majors[major]))
@@ -212,43 +209,43 @@ education.display = function () {
 
         $(".education-entry:last").append(formattedName + formattedDegree);
         $(".education-entry:last").append(formattedDates);
-        $(".education-entry:last").append(formattedLocation);
-
         for (major in formattedMajors) {
             $(".education-entry:last").append(formattedMajors[major]);
         }
     }
+
+    // Show online courses content
     $(".education-content").append(HTMLonlineClasses);
     $(".education-content").append("<div class='container-fluid'</div>");
 
     var count = 0;
     for (var online in education.onlineCourses) {
+        // Add a new row after every 3 courses (each are 4 columns wide)
         if (count === 0) {
             $(".education-content").append("<div class='row education-entry'></div>");
         }
-        $(".row:last").append("<div class='col-md-4 online-entry'></div>");
+        $(".education-entry:last").append("<div class='col-md-4 online-entry'></div>");
         var course = education.onlineCourses[online];
 
         var formattedTitle = HTMLonlineTitle.replaceData(course.title);
         var formattedSchool = HTMLonlineSchool.replaceData(course.school);
         var formattedDates = HTMLonlineDates.replaceData(course.dates);
-        var formattedUrl = HTMLonlineURL.replace(/%data%/g,course.url);
+        var formattedUrl = HTMLonlineURL.replace(/%data%/g, course.url);
 
+        $(".online-entry:last").append(formattedTitle + formattedSchool);
+        $(".online-entry:last").append(formattedDates);
+        $(".online-entry:last").append(formattedUrl);
 
-        $(".col-md-4:last").append(formattedTitle + formattedSchool);
-        $(".col-md-4:last").append(formattedDates);
-        $(".col-md-4:last").append(formattedUrl);
         count += 1;
-        console.log(count);
         if (count === 3) {
             count = 0;
         }
     }
 };
-$("h2").addClass("dark-gray").addClass("white-text");
+
+// Invoke functions and append Google Map
 bio.display();
 work.display();
 projects.display();
 education.display();
-
 $("#mapDiv").append(googleMap);

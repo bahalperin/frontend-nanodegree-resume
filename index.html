@@ -5,29 +5,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 
-  <title>My Resume</title>
-  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Righteous|Cinzel:900' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Viga|Trocchi|Fredericka+the+Great|Caudex|Leckerli+One|Quando' rel='stylesheet' type='text/css'>
+  <title>Ben Halperin's Resume</title>
+  <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
   <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
   <link type="text/css" rel="stylesheet" href="css/style.css" />
 
-  <!-- for the fixed header -->
-  <style type="text/css">
-    .header {
-      position: fixed;
-      width: 100%;
-      box-sizing: border-box;
-    }
-  </style>
-
-
   <script type="text/javascript" src="js/jQuery.js"></script>
   <script type="text/javascript" src="js/helper.js"></script>
-
   <script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
@@ -70,11 +56,11 @@
 
 <body>
   <div id="page">
-    <div class="header FixedTop">
+    <div class="nav FixedTop white-text text-center">
       <a href="#menu"></a>
     </div>
     <div>
-      <div id="header">
+      <div id="header" class="dark-gray">
         <div class="header-content container-fluid">
           <ul id="topContacts" class="row"></ul>
         </div>
@@ -101,7 +87,7 @@
     </div>
     <nav id="menu">
       <ul>
-        <li><a href="#header">Header</a>
+        <li><a href="#header" id="nav-header">Ben's Resume</a>
         </li>
         <li><a href="#workExperience">Work Experience</a>
         </li>
@@ -109,7 +95,17 @@
         </li>
         <li><a href="#education">Education</a>
         </li>
-        <li><a href="#mapDiv">Map</a>
+        <li><a href="http://bahalps.github.io/frontend-nanodegree-portfolio/">My portfolio</a>
+        </li>
+        <li><span>Contacts</span>
+          <ul>
+            <li><a>(973) 632-2763</a>
+            </li>
+            <li><a href="mailto:bahalperin@gmail.com?Subject=Your%20resume%20is%20awesome!">bahalperin@gmail.com</a>
+            </li>
+            <li><a href="https://github.com/bahalps">github: bahalps</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
