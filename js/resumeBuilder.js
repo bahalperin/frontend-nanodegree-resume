@@ -5,22 +5,15 @@ var work = {
             "employer": "Korda/Nemeth Engineering",
             "title": "Mechanical Engineer",
             "location": "Columbus, OH",
-            "dates": "January 2014 - Present",
-            "description": ["A metalloid is a chemical element that has properties in between those of metals and nonmetals. There is no standard definition of a metalloid, nor is there agreement as to which elements are appropriately classified as such.", "Despite this uncertainty, the term remains in use in chemistry literature. The six commonly recognised metalloids are boron, silicon, germanium, arsenic, antimony and tellurium (pictured). Elements less commonly recognised as metalloids include carbon, aluminium, selenium, polonium and astatine. Typical metalloids have a metallic appearance but are brittle and only fair conductors of electricity. Chemically, they mostly behave as weak nonmetals.", "They can form alloys with metals. Most of their other properties are intermediate in nature. Metalloids and their compounds are used in alloys, biological agents, flame retardants, glasses, optical storage and optoelectronics, pyrotechnics, semiconductors and electronics.", "The term metalloid originally referred to nonmetals. Its more recent meaning, as a category of elements with intermediate properties, became widespread in 1940–1960. Metalloids are sometimes called semimetals, a practice that has been discouraged. "]
+            "dates": "January 2014 - January 2015",
+            "description": ["Designed HVAC and plumbing systems for education and healthcare facilities.", "Collaborated with architects and engineers to ensure issues were resolved before construction phase.", "Consistently submitted drawings on time while working on multiple projects with different schedules."]
         },
         {
             "employer": "Honda R&D Americas, Inc.",
             "title": "Underbody Design Engineer",
             "location": "Raymond, OH",
             "dates": "June 2012 - January 2014",
-            "description": ["Responsible for design of rear bumper beam, front bumper, and grille on future Honda vehicle.", "Worked in multi-functional team comprised of electrical, lighting, reliability, dynamic performance, crash-safety, manufacturing, styling, purchasing, and supplier companies.", "Designed steel, aluminum, and plastic parts using various forming technologies including stamping, rollforming, extrusion, and injection molding; Modeled parts using CATIA V5.", "Worked under tight deadlines to mature part design and issue drawings.", "Calculated part costs for correlation meetings with purchasing and suppliers."]
-        },
-        {
-            "employer": "Thomas Polise Consulting Engineer PC",
-            "title": "Mechanical Engineering Intern",
-            "location": "New York, NY",
-            "dates": "June 2011 - August 2011",
-            "description": ["TPCE is an MEP consulting engineering firm with over 40 years of experience in the industry.", "Performed calculations related to the design of HVAC systems, including: heating load, cooling load, duct sizing, pipe sizing, pipe flow rate, and pipe pressure drop.", "Increased productivity by creating useful tools in Excel referencing the ASHRAE Fundamentals Handbook and Carrier Design Manual, removing the need to look up data and perform repetitive calculations.", "Answered design questions by referring to ASHRAE standards and building, mechanical, and fire codes.", "Visited construction sites and learned how to read construction drawings."]
+            "description": ["Designed rear bumper beam, front bumper, and grille on future Honda vehicle.", "Worked in multi-functional team comprised of electrical, lighting, reliability, dynamic performance, crash-safety, manufacturing, styling, purchasing, and supplier companies.", "Designed steel, aluminum, and plastic parts using various forming technologies including stamping, rollforming, extrusion, and injection molding; Modeled parts using CATIA V5.", "Worked under tight deadlines to mature part design and issue drawings.", "Calculated part costs for correlation meetings with purchasing and suppliers."]
         }
     ]
 };
@@ -28,17 +21,29 @@ var work = {
 var projects = {
     "projects": [
         {
-            "title": "Duct Sizer",
-            "dates": "September 2014 - October 2014",
-            "description": ["Web application for sizing ducts.  Meant to replace cardboard duct calculators.", "Blah blah blah more stuff eventually."],
+            "title": "Neighborhood Map",
+            "dates": "December 2014",
+            "description": ["Single-page, responsive application built with Knockout.js framework and hosted on GitHub Pages.", "Developed a full-page map that loads with 20 popular bars and restaurants in Boston, MA.", "User can view recent pictures taken at each location (retrieved by AJAX request to Instagram API)."],
             "images": []
         },
         {
-            "title": "Duct Sizer 2...This time more duct-y",
-            "dates": "September 2014 - Forever",
-            "description": ["Lorem ipsum and all that blah blah blah blahblahblahblah blah.", "More lorem ipsum lorem ipsum blah lorem blah blah blah loremblah blah."],
+            "title": "Arcade Game",
+            "dates": "November 2014",
+            "description": ["Clone of the classic game, Frogger. Udacity provided the art assets and game engine.", "Coded player, enemies, and other game entities in JavaScript's object-oriented pseudo-classical style.", "Created enemy subclasses with different movement patterns and sprites (edited art assets in GIMP)."],
             "images": []
-      }
+        },
+        {
+        "title": "Duct Sizer",
+        "dates": "September 2014",
+            "description": ["Created a responsive, single-page application to perform an HVAC engineering calculation.", "Reduced time for repetitive calculation, giving engineers more time to focus on problem-solving."],
+    "images": []
+        },
+        {
+            "title": "Website Optimization",
+            "dates": "November 2014",
+            "description": ["Optimized critical rendering path of existing website to achieve PageSpeed Insights score above 90.", "Eliminated inefficiencies in the website's scroll animation. Site now scrolls at 60 frames per second."],
+            "images": []
+        },
     ]
 };
 
@@ -81,6 +86,30 @@ var education = {
             "url": "https://www.udacity.com"
         },
         {
+            "title": "JavaScript Basics",
+            "school": "Udacity",
+            "dates": "October 2014",
+            "url": "https://www.udacity.com"
+        },
+        {
+            "title": "Object-Oriented JavaScript",
+            "school": "Udacity",
+            "dates": "November 2014",
+            "url": "https://www.udacity.com"
+        },
+        {
+            "title": "Website Performance Optimization",
+            "school": "Udacity",
+            "dates": "November 2014",
+            "url": "https://www.udacity.com"
+        },
+        {
+            "title": "JavaScript Design Patterns",
+            "school": "Udacity",
+            "dates": "December 2014",
+            "url": "https://www.udacity.com"
+        },
+        {
             "title": "Python Track",
             "school": "Codecademy",
             "dates": "April 2014",
@@ -117,23 +146,8 @@ bio.display = function () {
 
     var formattedWelcome = HTMLWelcomeMsg.replaceData(this.welcomeMessage);
 
-    // Not showing picture on resume for now.
-    // var formattedPicture = HTMLbioPic.replaceData(this.picture);
-    // $("#header").append(formattedPicture);
-
     $(".header-content").prepend(formattedWelcome);
     $(".welcome-message").wrap("<div class='welcome row text-center'></div>");
-
-    // Not showing skills on resume for now.
-    /*
-    if (this.skills.length !== 0) {
-        $("#header").append(HTMLskillsStart);
-        for (var skill in this.skills) {
-            var formattedSkill = HTMLskills.replaceData(bio.skills[skill]);
-            $("#skills").append(formattedSkill);
-        }
-    }
-*/
 
     for (var contact in this.contacts) {
         var formattedContact = HTMLcontactGeneric.replaceData(this.contacts[contact]);
@@ -177,7 +191,7 @@ projects.display = function () {
         var formattedImages = "";
         if (project.images.length > 0) {
             for (var image in project.images) {
-                formattedImages += HTMLprojectImage.replaceData(project.images[image])
+                formattedImages += HTMLprojectImage.replaceData(project.images[image]);
             }
         }
 
@@ -203,7 +217,7 @@ education.display = function () {
         var formattedMajors = [];
         if (abbrSchool.majors.length > 0) {
             for (var major in abbrSchool.majors) {
-                formattedMajors.push(HTMLschoolMajor.replaceData(abbrSchool.majors[major]))
+                formattedMajors.push(HTMLschoolMajor.replaceData(abbrSchool.majors[major]));
             }
         }
 

@@ -1,6 +1,5 @@
 /* Basic Styles
 ================================================== */
-
 body {
   padding: 0;
   margin: 0;
@@ -59,7 +58,13 @@ span {
 a {
   color: #1199C3;
   text-decoration: none;
-  display: block;
+  display: inline;
+}
+i {
+  padding-right: 15px;
+}
+i:hover {
+  color: #d49000;
 }
 /* Classes, ID's, & More Specific Styles
 ================================================== */
@@ -92,6 +97,11 @@ a {
 }
 .footer-header {
   font-family: "Trocchi", "serif";
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+#letsConnect {
   background: #484848;
   border-top: 5px solid #d49000;
   margin-top: 0;
@@ -99,7 +109,6 @@ a {
   padding-top: 10px;
   padding-bottom: 10px;
   color: white;
-  font-weight: bold;
   position: relative;
   z-index: 100;
 }
@@ -172,12 +181,6 @@ span.orange-text {
   margin-bottom: 0;
   max-width: 1024px;
   margin: 0 auto;
-}
-#letsConnect {
-  text-align: center;
-  height: 60px;
-  background: #484848;
-  margin-top: 0;
 }
 #map {
   display: block;
