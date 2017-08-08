@@ -54,7 +54,7 @@ var bio = {
     "contacts": {
         "mobile": "(973) 632-2763",
         "email": "bahalperin@gmail.com",
-        "github": "bahalps",
+        "github": "bahalperin",
         "location": "Columbus, OH"
     },
     "skills": ["HTML", "CSS", "Javascript", "Python"],
